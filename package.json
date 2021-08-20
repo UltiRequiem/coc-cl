@@ -87,5 +87,11 @@
         }
       }
     }
-  }
+  },
+  "snippets": [
+    {
+      "language": "lisp",
+      "path": "./snippets.json"
+    }
+  ]
 }
