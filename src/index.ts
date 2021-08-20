@@ -1,3 +1,5 @@
+'use strict'
+
 import {
   workspace,
   ExtensionContext,
@@ -8,10 +10,12 @@ import {
   Executable,
 } from 'coc.nvim'
 
+import { LSP_NAME, EXTENSION_NAME } from './constants'
+
 let languageClient: LanguageClient
 
 function activate(context: ExtensionContext) {
-  const config = workspace.getConfiguration('cl-lsp')
+  const config = workspace.getConfiguration(EXTENSION_NAME)
 
   if (!config.get<boolean>('enable', true)) {
     return
@@ -33,7 +37,7 @@ function activate(context: ExtensionContext) {
     documentSelector: ['lisp'],
   }
 
-  languageClient = new LanguageClient('cl-lsp', 'Common Lisp Language Server', serverOptions, clientOptions)
+  languageClient = new LanguageClient(LSP_NAME, 'Common Lisp Language Server', serverOptions, clientOptions)
 
   context.subscriptions.push(languageClient.start())
 
