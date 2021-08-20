@@ -52,12 +52,17 @@
       "type": "object",
       "title": "CL-LSP",
       "properties": {
-        "coc-cl.serverPath": {
+        "lisp.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-cl extension"
+        },
+        "lisp.serverPath": {
           "type": "string",
           "default": "cl-lsp",
           "description": "The path of the cl-lsp executable"
         },
-        "coc-cl.serverArguments": {
+        "lisp.serverArguments": {
           "type": "array",
           "default": [],
           "items": {
@@ -65,17 +70,17 @@
           },
           "description": "Arguments to pass to cl-lsp. Argument keys and values should be provided as separate entries in the array e.g. ['--log-level', 'debug']"
         },
-        "coc-cl.toolchainPath": {
+        "lisp.toolchainPath": {
           "type": "string",
           "default": "",
           "description": "(optional) The path of the swift toolchain. By default, cl-lsp uses the toolchain it is installed in."
         },
-        "coc-cl.maxNumberOfProblems": {
+        "lisp.maxNumberOfProblems": {
           "type": "number",
           "default": 100,
           "description": "Controls the maximum number of problems produced by the server."
         },
-        "coc-cl.trace.server": {
+        "lisp.trace.server": {
           "type": "string",
           "enum": [
             "off",
