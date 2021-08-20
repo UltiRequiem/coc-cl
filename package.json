@@ -42,14 +42,48 @@
     "onLanguage:lisp"
   ],
   "contributes": {
+    "commands": [
+      {
+        "command": "lisp.interrupt",
+        "title": "Lisp: Interrupt"
+      }
+    ],
     "configuration": {
       "type": "object",
-      "title": "coc-cl configuration",
+      "title": "CL-LSP",
       "properties": {
-        "coc-cl.enabled": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable coc-cl extension"
+        "coc-cl.serverPath": {
+          "type": "string",
+          "default": "cl-lsp",
+          "description": "The path of the cl-lsp executable"
+        },
+        "coc-cl.serverArguments": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "description": "Arguments to pass to cl-lsp. Argument keys and values should be provided as separate entries in the array e.g. ['--log-level', 'debug']"
+        },
+        "coc-cl.toolchainPath": {
+          "type": "string",
+          "default": "",
+          "description": "(optional) The path of the swift toolchain. By default, cl-lsp uses the toolchain it is installed in."
+        },
+        "coc-cl.maxNumberOfProblems": {
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "coc-cl.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between Visual Studio Code and the CL-LSP service."
         }
       }
     }
