@@ -4,7 +4,7 @@
 
 ## Configuration
 
-If your `coc-settings`:
+In your `coc-settings`:
 
 ```json
   "lisp.enabled": true,
@@ -17,9 +17,9 @@ If your `coc-settings`:
 
 ## Install
 
-In you Neovim run:
+In Neovim run:
 
-`:CocInstall coc-l`
+`:CocInstall coc-cl`
 
 Or using Packer:
 
