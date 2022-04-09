@@ -1,49 +1,52 @@
-'use strict'
-
+import process from 'node:process';
 import {
-  workspace,
-  ExtensionContext,
-  commands,
-  LanguageClient,
-  LanguageClientOptions,
-  ServerOptions,
-  Executable,
-} from 'coc.nvim'
+	workspace,
+	ExtensionContext,
+	commands,
+	LanguageClient,
+	LanguageClientOptions,
+	ServerOptions,
+	Executable,
+} from 'coc.nvim';
 
-import { LSP_NAME, EXTENSION_NAME } from './constants'
+import {lspName, extensionName} from './constants';
 
-let languageClient: LanguageClient
+let languageClient: LanguageClient;
 
-function activate(context: ExtensionContext) {
-  const config = workspace.getConfiguration(EXTENSION_NAME)
+export function activate(context: ExtensionContext) {
+	const config = workspace.getConfiguration(extensionName);
 
-  if (!config.get<boolean>('enable', true)) {
-    return
-  }
+	if (!config.get('enable', true)) {
+		return;
+	}
 
-  const cl: Executable = {
-    command: config.get<string>('serverPath', 'cl-lsp'),
-    args: config.get<string[]>('serverArguments', []),
-  }
+	const cl: Executable = {
+		command: config.get('serverPath', 'cl-lsp'),
+		args: config.get('serverArguments', []),
+	};
 
-  const toolchain = config.get<string>('toolchainPath', '')
-  if (toolchain) {
-    cl.options = { env: { ...process.env, CL_LSP_TOOLCHAIN_PATH: toolchain } }
-  }
+	const toolchain = config.get('toolchainPath', '');
+	if (toolchain) {
+		cl.options = {env: {...process.env, CL_LSP_TOOLCHAIN_PATH: toolchain}};
+	}
 
-  const serverOptions: ServerOptions = cl
+	const serverOptions: ServerOptions = cl;
 
-  const clientOptions: LanguageClientOptions = {
-    documentSelector: ['lisp'],
-  }
+	const clientOptions: LanguageClientOptions = {
+		documentSelector: ['lisp'],
+	};
 
-  languageClient = new LanguageClient(LSP_NAME, 'Common Lisp Language Server', serverOptions, clientOptions)
+	languageClient = new LanguageClient(
+		lspName,
+		'Common Lisp Language Server',
+		serverOptions,
+		clientOptions,
+	);
 
-  context.subscriptions.push(languageClient.start())
-
-  context.subscriptions.push(
-    commands.registerCommand('lisp.interrupt', () => languageClient.sendNotification('lisp/interrupt', {}))
-  )
+	context.subscriptions.push(
+		languageClient.start(),
+		commands.registerCommand('lisp.interrupt', () => {
+			languageClient.sendNotification('lisp/interrupt', {});
+		}),
+	);
 }
-
-export default activate

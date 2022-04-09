@@ -1,6 +1,6 @@
 {
   "name": "coc-cl",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Common Lisp language server provider extension using cl-lsp for coc.nvim",
   "author": "Eliaz Bobadilla <eliaz.bobadilladev@gmail.com>",
   "license": "MIT",
@@ -14,29 +14,19 @@
     "coc": "^0.0.80"
   },
   "scripts": {
-    "lint": "eslint src --ext ts",
+    "lint": "xo src",
     "clean": "rimraf lib",
     "watch": "node esbuild.js --watch",
     "build": "node esbuild.js",
     "prepare": "node esbuild.js"
   },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 120,
-    "semi": false
-  },
   "devDependencies": {
-    "@types/node": "^16.6.2",
-    "@typescript-eslint/eslint-plugin": "^4.8.2",
-    "@typescript-eslint/parser": "^4.8.2",
+    "@types/node": "^17.0.23",
     "coc.nvim": "^0.0.80",
     "esbuild": "^0.8.42",
-    "eslint": "^7.14.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.2.0",
     "rimraf": "^3.0.2",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "xo": "^0.48.0"
   },
   "activationEvents": [
     "onLanguage:lisp"
@@ -88,7 +78,7 @@
             "verbose"
           ],
           "default": "off",
-          "description": "Traces the communication between Visual Studio Code and the CL-LSP service."
+          "description": "Traces the communication between coc.nvim and the CL-LSP service."
         }
       }
     }
@@ -96,7 +86,17 @@
   "snippets": [
     {
       "language": "lisp",
-      "path": "./snippets.json"
+      "path": "./src/snippets.json"
     }
-  ]
+  ],
+  "xo": {
+    "rules": {
+      "import/extensions": "off",
+      "@typescript-eslint/naming-convention": "off"
+    }
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/ultirequiem"
+  }
 }
