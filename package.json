@@ -2,6 +2,11 @@
   "name": "coc-cl",
   "version": "0.2.0",
   "description": "Common Lisp language server provider extension using cl-lsp for coc.nvim",
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/ultirequiem"
+  },
+  "repository": "github:ultirequiem/coc-zig",
   "author": "Eliaz Bobadilla <eliaz.bobadilladev@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -94,9 +99,5 @@
       "import/extensions": "off",
       "@typescript-eslint/naming-convention": "off"
     }
-  },
-  "funding": {
-    "type": "patreon",
-    "url": "https://www.patreon.com/ultirequiem"
   }
 }

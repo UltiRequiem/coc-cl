@@ -1,15 +1,15 @@
 import process from 'node:process';
 import {
-	workspace,
-	ExtensionContext,
 	commands,
+	Executable,
+	ExtensionContext,
 	LanguageClient,
 	LanguageClientOptions,
 	ServerOptions,
-	Executable,
+	workspace,
 } from 'coc.nvim';
 
-import {lspName, extensionName} from './constants';
+import {extensionName, lspName} from './constants';
 
 let languageClient: LanguageClient;
 
