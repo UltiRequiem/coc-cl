@@ -6,7 +6,7 @@
     "type": "patreon",
     "url": "https://www.patreon.com/ultirequiem"
   },
-  "repository": "github:ultirequiem/coc-zig",
+  "repository": "github:ultirequiem/coc-cl",
   "author": "Eliaz Bobadilla <eliaz.bobadilladev@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
