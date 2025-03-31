@@ -1,6 +1,6 @@
 {
   "name": "coc-cl",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Common Lisp language server provider extension using cl-lsp for coc.nvim",
   "funding": {
     "type": "patreon",
