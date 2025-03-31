@@ -1,4 +1,4 @@
-import process from "node:process";
+import process from "process";
 import {
   commands,
   Executable,
@@ -40,13 +40,13 @@ export function activate(context: ExtensionContext) {
     lspName,
     "Common Lisp Language Server",
     serverOptions,
-    clientOptions,
+    clientOptions
   );
 
   context.subscriptions.push(
     languageClient.start(),
     commands.registerCommand("lisp.interrupt", () => {
       languageClient.sendNotification("lisp/interrupt", {});
-    }),
+    })
   );
 }
