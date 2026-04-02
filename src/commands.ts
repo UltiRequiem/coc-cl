@@ -1,7 +1,7 @@
-import { commands } from "coc.nvim";
+import {commands, type Disposable} from 'coc.nvim';
 
-function registerCommand(command: string, impl: (...args: any[]) => void) {
-  commands.registerCommand(`cl.${command}`, impl);
+function registerCommand(command: string, implementation: (...arguments_: any[]) => void): Disposable {
+	return commands.registerCommand(`cl.${command}`, implementation);
 }
 
 export default registerCommand;

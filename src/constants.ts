@@ -1,4 +1,4 @@
 /** Useful to have everything on one place */
 
-export const lspName = "cl-lsp";
-export const extensionName = "cl";
+export const lspName = 'cl-lsp';
+export const extensionName = 'cl';
