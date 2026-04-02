@@ -34,5 +34,47 @@
     "prefix": "lambda ",
     "body": "lambda (${1:lambda-list}) ${2:form}",
     "description": "Provides a shorthand notation for a function special form involving a lambda expression."
+  },
+  "defmacro": {
+    "scope": "commonlisp",
+    "prefix": "defmacro ",
+    "body": "defmacro ${1:name} (${2:lambda-list})\n\t${3:form}",
+    "description": "Defines a macro in the global environment."
+  },
+  "defclass": {
+    "scope": "commonlisp",
+    "prefix": "defclass ",
+    "body": "defclass ${1:class-name} (${2:superclass})\n\t((${3:slot-name} :initarg :${3:slot-name} :accessor ${3:slot-name}))",
+    "description": "Defines a new class."
+  },
+  "defmethod": {
+    "scope": "commonlisp",
+    "prefix": "defmethod ",
+    "body": "defmethod ${1:function-name} ((${2:object} ${3:class-name}))\n\t${4:form}",
+    "description": "Defines a method for a generic function."
+  },
+  "loop": {
+    "scope": "commonlisp",
+    "prefix": "loop ",
+    "body": "loop for ${1:var} in ${2:list}\n\t${3:do (something)}",
+    "description": "Iterates using the loop facility."
+  },
+  "format": {
+    "scope": "commonlisp",
+    "prefix": "format ",
+    "body": "format ${1:t} \"${2:~a}\" ${3:arg}",
+    "description": "Produces formatted output."
+  },
+  "when": {
+    "scope": "commonlisp",
+    "prefix": "when ",
+    "body": "when ${1:test-form}\n\t${2:form}",
+    "description": "Evaluates forms only when test-form is true."
+  },
+  "unless": {
+    "scope": "commonlisp",
+    "prefix": "unless ",
+    "body": "unless ${1:test-form}\n\t${2:form}",
+    "description": "Evaluates forms only when test-form is false."
   }
 }
