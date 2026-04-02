@@ -4,11 +4,15 @@
 [![npm version](https://img.shields.io/npm/v/coc-cl.svg)](https://www.npmjs.com/package/coc-cl)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](license)
 
-[coc.nvim](https://github.com/neoclide/coc.nvim) extension for Common Lisp, powered by [cl-lsp](https://github.com/cxxxr/cl-lsp). Provides LSP features (completions, diagnostics, go-to-definition, hover) plus snippets for Common Lisp buffers.
+[coc.nvim](https://github.com/neoclide/coc.nvim) extension for Common Lisp,
+powered by [cl-lsp](https://github.com/cxxxr/cl-lsp). Provides LSP features
+(completions, diagnostics, go-to-definition, hover) plus snippets for Common
+Lisp buffers.
 
 ## Prerequisites
 
-Install [cl-lsp](https://github.com/cxxxr/cl-lsp) and ensure it is on your `PATH`, or set `cl.serverPath` to its absolute location.
+Install [cl-lsp](https://github.com/cxxxr/cl-lsp) and ensure it is on your
+`PATH`, or set `cl.serverPath` to its absolute location.
 
 ## Install
 
@@ -37,14 +41,14 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 Add any of these to your `coc-settings.json` (`:CocConfig`):
 
-| Key | Type | Default | Description |
-|---|---|---|---|
-| `cl.enabled` | boolean | `true` | Enable/disable the extension |
-| `cl.serverPath` | string | `"cl-lsp"` | Path to the cl-lsp binary |
-| `cl.serverArguments` | string[] | `[]` | Extra arguments passed to cl-lsp |
-| `cl.toolchainPath` | string | `""` | Optional path to the Lisp toolchain |
-| `cl.maxNumberOfProblems` | number | `100` | Max diagnostics shown |
-| `cl.trace.server` | `"off"` \| `"messages"` \| `"verbose"` | `"off"` | LSP protocol tracing |
+| Key                      | Type                                   | Default    | Description                         |
+| ------------------------ | -------------------------------------- | ---------- | ----------------------------------- |
+| `cl.enabled`             | boolean                                | `true`     | Enable/disable the extension        |
+| `cl.serverPath`          | string                                 | `"cl-lsp"` | Path to the cl-lsp binary           |
+| `cl.serverArguments`     | string[]                               | `[]`       | Extra arguments passed to cl-lsp    |
+| `cl.toolchainPath`       | string                                 | `""`       | Optional path to the Lisp toolchain |
+| `cl.maxNumberOfProblems` | number                                 | `100`      | Max diagnostics shown               |
+| `cl.trace.server`        | `"off"` \| `"messages"` \| `"verbose"` | `"off"`    | LSP protocol tracing                |
 
 Example:
 
@@ -57,8 +61,8 @@ Example:
 
 ## Commands
 
-| Command | Description |
-|---|---|
+| Command        | Description                                            |
+| -------------- | ------------------------------------------------------ |
 | `cl.interrupt` | Send an interrupt signal to the running cl-lsp process |
 
 ## Development

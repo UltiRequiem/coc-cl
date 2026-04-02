@@ -4,7 +4,6 @@ export default defineConfig({
   entry: ["src/index.ts"],
   outDir: "lib",
   format: ["cjs"],
-  bundle: true,
   minify: true,
   external: ["coc.nvim"],
 });
