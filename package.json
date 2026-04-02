@@ -1,6 +1,6 @@
 {
   "name": "coc-cl",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "Common Lisp language server provider extension using cl-lsp for coc.nvim",
   "funding": {
     "type": "patreon",
@@ -16,22 +16,22 @@
     "lisp"
   ],
   "engines": {
-    "coc": "^0.0.80"
+    "coc": "^0.0.83"
   },
   "scripts": {
     "lint": "xo src",
     "clean": "rimraf lib",
-    "watch": "node esbuild.js --watch",
-    "build": "node esbuild.js",
-    "prepare": "node esbuild.js"
+    "watch": "tsdown --watch",
+    "build": "tsdown",
+    "prepare": "tsdown"
   },
   "devDependencies": {
-    "@types/node": "^17.0.23",
-    "coc.nvim": "^0.0.80",
-    "esbuild": "^0.8.42",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.1.2",
-    "xo": "^0.48.0"
+    "@types/node": "^22.0.0",
+    "coc.nvim": "^0.0.83",
+    "rimraf": "^6.0.0",
+    "tsdown": "^0.12.0",
+    "typescript": "^5.8.0",
+    "xo": "^0.60.0"
   },
   "activationEvents": [
     "onLanguage:lisp"
@@ -39,43 +39,43 @@
   "contributes": {
     "commands": [
       {
-        "command": "lisp.interrupt",
-        "title": "Lisp: Interrupt"
+        "command": "cl.interrupt",
+        "title": "CL: Interrupt"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "CL-LSP",
+      "title": "coc-cl",
       "properties": {
-        "lisp.enabled": {
+        "cl.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable coc-cl extension"
         },
-        "lisp.serverPath": {
+        "cl.serverPath": {
           "type": "string",
           "default": "cl-lsp",
-          "description": "The path of the cl-lsp executable"
+          "description": "Path to the cl-lsp executable. Overrides the PATH lookup."
         },
-        "lisp.serverArguments": {
+        "cl.serverArguments": {
           "type": "array",
           "default": [],
           "items": {
             "type": "string"
           },
-          "description": "Arguments to pass to cl-lsp. Argument keys and values should be provided as separate entries in the array e.g. ['--log-level', 'debug']"
+          "description": "Arguments to pass to cl-lsp. Argument keys and values should be provided as separate entries e.g. ['--log-level', 'debug']"
         },
-        "lisp.toolchainPath": {
+        "cl.toolchainPath": {
           "type": "string",
           "default": "",
-          "description": "(optional) The path of the swift toolchain. By default, cl-lsp uses the toolchain it is installed in."
+          "description": "(optional) Path of the Lisp toolchain. By default, cl-lsp uses the toolchain it is installed in."
         },
-        "lisp.maxNumberOfProblems": {
+        "cl.maxNumberOfProblems": {
           "type": "number",
           "default": 100,
           "description": "Controls the maximum number of problems produced by the server."
         },
-        "lisp.trace.server": {
+        "cl.trace.server": {
           "type": "string",
           "enum": [
             "off",
@@ -83,7 +83,7 @@
             "verbose"
           ],
           "default": "off",
-          "description": "Traces the communication between coc.nvim and the CL-LSP service."
+          "description": "Traces the communication between coc.nvim and the cl-lsp service."
         }
       }
     }

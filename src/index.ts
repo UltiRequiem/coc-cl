@@ -1,6 +1,5 @@
 import process from "process";
 import {
-  commands,
   Executable,
   ExtensionContext,
   LanguageClient,
@@ -9,6 +8,7 @@ import {
   workspace,
 } from "coc.nvim";
 
+import registerCommand from "./commands";
 import { extensionName, lspName } from "./constants";
 
 let languageClient: LanguageClient;
@@ -16,7 +16,7 @@ let languageClient: LanguageClient;
 export function activate(context: ExtensionContext) {
   const config = workspace.getConfiguration(extensionName);
 
-  if (!config.get("enable", true)) {
+  if (!config.get("enabled", true)) {
     return;
   }
 
@@ -45,8 +45,8 @@ export function activate(context: ExtensionContext) {
 
   context.subscriptions.push(
     languageClient.start(),
-    commands.registerCommand("lisp.interrupt", () => {
-      languageClient.sendNotification("lisp/interrupt", {});
+    registerCommand("interrupt", () => {
+      languageClient.sendNotification("cl/interrupt", {});
     })
   );
 }
