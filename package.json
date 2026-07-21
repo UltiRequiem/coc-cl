@@ -27,7 +27,7 @@
     "rimraf": "^6.0.0",
     "tsdown": "^0.12.0",
     "typescript": "^5.8.0",
-    "xo": "^0.60.0"
+    "xo": "^4.0.0"
   },
   "activationEvents": [
     "onLanguage:lisp"
