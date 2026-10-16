@@ -5,5 +5,6 @@ export default defineConfig({
   outDir: "lib",
   format: ["cjs"],
   minify: true,
-  external: ["coc.nvim"],
+  outExtensions: () => ({ js: ".js" }),
+  deps: { neverBundle: ["coc.nvim"] },
 });

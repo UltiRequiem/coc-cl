@@ -25,7 +25,7 @@ export function activate(context: ExtensionContext) {
 	};
 
 	const toolchain = config.get('toolchainPath', '');
-	if (toolchain) {
+	if (toolchain !== '') {
 		cl.options = {env: {...process.env, CL_LSP_TOOLCHAIN_PATH: toolchain}};
 	}
 
@@ -44,9 +44,9 @@ export function activate(context: ExtensionContext) {
 
 	void languageClient.start();
 
-	context.subscriptions.push(
-		registerCommand('interrupt', () => {
-			void languageClient.sendNotification('cl/interrupt', {});
-		}),
-	);
+	const interruptCommand = registerCommand('interrupt', () => {
+		void languageClient.sendNotification('cl/interrupt', {});
+	});
+
+	context.subscriptions.push(interruptCommand);
 }
