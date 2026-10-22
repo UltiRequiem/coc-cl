@@ -95,5 +95,6 @@
       "import/extensions": "off",
       "@typescript-eslint/naming-convention": "off"
     }
-  }
+  },
+  "packageManager": "pnpm@12.6.0"
 }
