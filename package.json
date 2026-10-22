@@ -30,7 +30,7 @@
     "rimraf": "^6.0.0",
     "tsdown": "^0.23.1",
     "typescript": "^6.0.0",
-    "xo": "^4.0.0"
+    "xo": "^5.0.1"
   },
   "activationEvents": [
     "onLanguage:lisp"
@@ -93,11 +93,5 @@
       "path": "./src/snippets.json"
     }
   ],
-  "xo": {
-    "rules": {
-      "import/extensions": "off",
-      "@typescript-eslint/naming-convention": "off"
-    }
-  },
   "packageManager": "pnpm@12.6.0"
 }
