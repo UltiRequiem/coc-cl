@@ -54,7 +54,7 @@ jobs:
           echo "version=$NEXT" >> "$GITHUB_OUTPUT"
           echo "Releasing $NAME $CURRENT -> $NEXT"
 
-      - run: npm version "${{ steps.version.outputs.version }}" --no-git-tag-version
+      - run: npm version "${{ steps.version.outputs.version }}" --no-git-tag-version --allow-same-version
       - run: pnpm run build
       - name: Verify entry points exist
         run: >-
